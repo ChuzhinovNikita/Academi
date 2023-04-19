@@ -1,0 +1,33 @@
+{% extends 'base_layout.html' %}
+{% load static from static %}
+
+
+{% block content %}
+    <section class="section is-medium has-background-success">
+        <div class="container"">
+            <div class="container has-text-centered">
+                <p class="title">
+                    Здравствуйте, уважаемый пользователь
+                </p>
+                <p class="subtitle">
+                    Наши преподаватели
+                </p>
+                <div class="columns">
+                    {% for teacher in teachers %}
+                        <div class="column">
+                            <div class="box">
+                                <figur class="image">
+                                    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png"
+                                         alt="">
+                                </figur>
+                                <br>
+                                <div class="title is-4 has-text-black">{{ teacher }}</div>
+                                <div class="content has-text-black">{{ teacher.teaching_course }}</div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

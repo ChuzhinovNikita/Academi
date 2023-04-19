@@ -1,0 +1,29 @@
+{% extends 'base_layout.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="section is-medium has-background-success">
+        <div class="container">
+            <div class="columns is-multiline is-centered">
+                {% for lead in leads %}
+                    <div class="column">
+                        <div class="box has-text-centered">
+                            <div class="subtitle is-spaced has-text-black">
+                                <div class="title is-4 has-text-black mt-6">Имя</div>
+                                {{ lead.name }} <br> {{ lead.last_name }}
+                            </div>
+                            <div class="subtitle is-spaced has-text-black">
+                                <div class="title is-4 has-text-black mt-6">Телефон</div>
+                                {{ lead.phone_number }}
+                            </div>
+                            <div class="subtitle is-spaced has-text-black">
+                                <div class="title is-4 has-text-black mt-6">Курс</div>
+                                {{ lead.course }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

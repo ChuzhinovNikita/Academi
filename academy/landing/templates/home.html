@@ -1,0 +1,31 @@
+{% extends 'base_layout.html' %}
+{% load static from static %}
+
+{% block content %}
+    <section class="section is-medium has-background-success">
+        <div class="container">
+            <div class="title is-2 has-text-centered is-capitalized">
+                наши курсы
+            </div>
+            <div class="columns">
+                {% for cours in courses %}
+                    <div class="column">
+                        <a href="{% url 'landing:course' cours.pk %}">
+                            <div class="box has-text-centered">
+                                <figur class="image">
+                                    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png"
+                                         alt="">
+                                </figur>
+                                <br>
+                                <div class="title is-4 has-text-black mt-6">{{ cours }}</div>
+                                <br>
+                                <div class="subtitle is-spaced has-text-black">{{ cours.price }} рублей</div>
+                                <div class="content has-text-black">{{ cours.duration }} месяцев</div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
